@@ -153,7 +153,6 @@ class MainActivity : ComponentActivity() {
                 animationStart = animationStart,
                 onRelease = {
                     // Анимируем сбор монет
-                    //  Удаляем все текущие монеты и добавляем анимацию сбора.
                     if (coinAnimations.isNotEmpty() && !animationStart) {
                         animationStart = true
                     }
@@ -180,6 +179,7 @@ class MainActivity : ComponentActivity() {
                 onDismiss = { viewModel.showUpgradeDialog.value = false },
                 onPurchase = { upgradeType, cost, upgradeValue ->
 
+                    // При покупке улучшения появляется звук покупки
                     viewModel.purchaseUpgrade(upgradeType, cost, upgradeValue)
                     soundPool?.play(purchaseSound, 1f, 1f, 0, 0, 1f)
 

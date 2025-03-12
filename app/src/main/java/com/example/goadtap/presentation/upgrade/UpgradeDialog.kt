@@ -52,6 +52,7 @@ fun UpgradeDialog(onDismiss: () -> Unit,
     ) {
         Column(modifier = Modifier
             .fillMaxWidth()
+            .clickable {}
             .background(Color.Black, RoundedCornerShape(32.dp))
         ) {
 
