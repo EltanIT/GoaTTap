@@ -183,6 +183,7 @@ class MainActivity : ComponentActivity() {
                     viewModel.purchaseUpgrade(upgradeType, cost, upgradeValue)
                     soundPool?.play(purchaseSound, 1f, 1f, 0, 0, 1f)
 
+
                 },
                 coins = coinData?.coins ?: 0,
                 upgrade1Level = coinData?.upgrade1Level ?: 0,
