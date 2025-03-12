@@ -1,8 +1,6 @@
 package com.example.goadtap.presentation
 
-import android.app.Application
 import android.media.MediaPlayer
-import android.media.SoundPool
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
@@ -82,7 +80,7 @@ class MainViewModel(
                     2 -> currentData.copy(coins = newCoins, tapValue = currentData.tapValue + upgradeValue, upgrade2Level = currentData.upgrade2Level + 1)
                     3 -> currentData.copy(coins = newCoins, tapValue = currentData.tapValue + upgradeValue, upgrade3Level = currentData.upgrade3Level + 1)
                     4 -> currentData.copy(coins = newCoins, tapValue = currentData.tapValue + upgradeValue, upgrade4Level = currentData.upgrade4Level + 1)
-                    else -> currentData // Handle invalid upgradeType
+                    else -> currentData // В случае косяка
                 }
                 coinDataDao.updateCoinData(updatedData)
             }
@@ -107,7 +105,7 @@ class MainViewModel(
                 modelClass: Class<T>,
                 extras: CreationExtras
             ): T {
-                val application = checkNotNull(extras[APPLICATION_KEY]) as Application
+                val application = checkNotNull(extras[APPLICATION_KEY])
 
                 val database = AppDatabase.getDatabase(application)
                 val mediaPlayer = MediaPlayer.create(application, R.raw.back_audio)

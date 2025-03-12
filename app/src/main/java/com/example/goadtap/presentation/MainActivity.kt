@@ -121,7 +121,7 @@ class MainActivity : ComponentActivity() {
                 .fillMaxWidth()){
                 
                 Text(
-                    text = "Цель: Купить Платок" + if ((coinData?.upgrade4Level ?: 0) > 0) "✅" else "",
+                    text = "Цель: Купить Платок" + if ((coinData?.upgrade4Level ?: 0) > 0 && gameOver) "✅" else "",
                     color = Color.White,
                     modifier = Modifier.padding(start = 10.dp)
                 )
@@ -182,8 +182,6 @@ class MainActivity : ComponentActivity() {
 
                     viewModel.purchaseUpgrade(upgradeType, cost, upgradeValue)
                     soundPool?.play(purchaseSound, 1f, 1f, 0, 0, 1f)
-
-
 
                 },
                 coins = coinData?.coins ?: 0,
